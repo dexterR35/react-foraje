@@ -1,65 +1,77 @@
-import { Helmet } from "react-helmet-async";
 import bitmapImg from "../assets/bitmap.png";
-import denisipariImg from "../assets/denisipari.png";
-import forajeImg from "../assets/foraje.png";
-import montajPompeImg from "../assets/path821.png";
-import puturiImg from "../assets/path559.png";
-import puturiImg2 from "../assets/path529.png";
+// import denisipariImg from "../assets/denisipari.png";
+// import forajeImg from "../assets/foraje.png";
+// import montajPompeImg from "../assets/path821.png";
+// import puturiImg from "../assets/path559.png";
+// import puturiImg2 from "../assets/path529.png";
+import {CallToActionPhoneButton} from "./Button.jsx";
+// const services = [
+//   {
+//     title: "Denisipari",
+//     img: denisipariImg,
+//   },
+//   {
+//     title: "Foraje",
+//     img: forajeImg,
+//   },
+//   {
+//     title: "Montaj Pompe",
+//     img: montajPompeImg,
+//   },
+//   {
+//     title: "Puturi",
+//     img: puturiImg,
+//   },
+//   {
+//     title: "Piloni",
+//     img: puturiImg2,
+//   },
+// ];
 
-const services = [
+const advantages = [
   {
-    title: "Denisipari",
-    img: denisipariImg,
+    icon: "💧",
+    text: "Sursă subterană sigură de apă pură, independentă de rețelele publice.",
   },
   {
-    title: "Foraje",
-    img: forajeImg,
+    icon: "💸",
+    text: "Economii importante prin eliminarea facturilor lunare.",
   },
   {
-    title: "Montaj Pompe",
-    img: montajPompeImg,
+    icon: "🌱",
+    text: "Ideal pentru irigare continuă în grădină și agricultură.",
   },
+  { icon: "🏡", text: "Completează autonomia pentru locuințe și ferme." },
   {
-    title: "Puturi",
-    img: puturiImg,
-  },
-  {
-    title: "Piloni",
-    img: puturiImg2,
+    icon: "🔧",
+    text: "Fiabilitate și durabilitate pe termen lung a echipamentelor.",
   },
 ];
 export default function Hero() {
   return (
     <section
       id="hero"
-      className="min-h-screen pt-20 bg-gradient-to-b from-primary/20 to-white flex items-center relative overflow-hidden flex-col justify-center space-y-24"
+      className="min-h-screen md:pt-20 flex items-center relative overflow-hidden flex-col justify-center md:space-y-20"
     >
-      <Helmet>
-        <title>Foraje puţuri denisipari profesionale | Apă curată și Sănătoasă</title>
-      </Helmet>
-
       {/* Background accent shape */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full -translate-x-1/2 translate-y-1/3 pointer-events-none hidden md:block" />
 
-      <div className="max-w-[85rem] mx-auto grid md:grid-cols-2 gap-5 p-8 md:p-2 items-center z-10">
+      <div className="max-w-[85rem] mx-auto md:grid md:grid-cols-2 gap-5 p-8 md:p-2 items-center z-10 flex flex-col-reverse">
         {/* Text Content */}
-        <div className="space-y-6">
-          <h1 className="text-6xl md:text-6xl font-semibold text-gray-700 max-w-[80%]">
+        <div className="space-y-8">
+          <h1 className="text-4xl md:text-6xl font-semibold text-gray-700 max-w-[95%] md:max-w-[80%]">
             Servicii complete pentru o
-            <span className="text-primaryText/90 font-bold"> Apă Sănătoasă și Pură</span>
+            <span className="text-primaryText/90 font-bold">
+              {" "}
+              Apă Sănătoasă și Pură
+            </span>
           </h1>
-          <p className="text-lg md:text-md text-gray-600 max-w-md">
+          <p className="text-md md:text-md text-gray-600 max-w-md">
             Peste 15 ani experienţă, echipamente moderne şi garanţie extinsă.
             Puțuri, fântâni, foraje și denisipări Contactează‑ne pentru o ofertă
             personalizată!
           </p>
-
-          <a
-            href="#contact"
-            className="inline-block px-14 py-4 rounded-3xl bg-primaryText/90 text-white text-2xl font-semibold shadow-lg uppercase"
-          >
-           Cere ofertă
-          </a>
+          <CallToActionPhoneButton variant="hero"/>
         </div>
 
         {/* Image with caption */}
@@ -74,19 +86,18 @@ export default function Hero() {
           />
         </div>
       </div>
-      <div className="grid grid-cols-2 sm:grid-cols-5 gap-6 max-w-5xl mx-auto p-4 bg-primary/10 rounded-[4rem]">
-        {services.map((service, index) => (
-          <div key={index} className="flex flex-row justify-center items-center text-center gap-3 ">
-            <img
-              src={service.img}
-              alt={service.title}
-              className="w-14 h-14 object-contain mb-2"
-            />
-            <p className="text-sm md:text-base text-gray-900 font-bold">
-              {service.title}
-            </p>
-          </div>
-        ))}
+      <div className="md:mb-20 max-w-[95%] mx-auto m-0">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 md:gap-8 gap-4">
+          {advantages.map(({ icon, text }, i) => (
+            <div
+              key={i}
+              className="flex flex-row items-center py-6 px-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 text-start gap-4"
+            >
+              <div className="text-3xl">{icon}</div>
+              <p className="text-gray-700 font-medium text-[0.95rem]">{text}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -1,6 +1,56 @@
-import React, { useRef } from "react";
-import ImageGallery from "react-image-gallery";
-import "react-image-gallery/styles/css/image-gallery.css";
+import React, { useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Thumbs, Autoplay } from "swiper/modules";
+import { CallToActionPhoneButton, WhatsAppButton } from "./Button.jsx";
+
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/thumbs";
+
+const styles = `
+/* White circular navigation arrows with shadow */
+.swiper-button-next,
+.swiper-button-prev {
+  color: white !important;
+  width: 3rem;
+  height: 3rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  transition: background-color 0.3s ease;
+  z-index: 20;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* Larger arrow icon */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Active thumbnail styling */
+.swiper-slide-thumb-active {
+  border-color: #2563eb !important; /* Tailwind blue-600 */
+  box-shadow: 0 0 10px rgba(37, 99, 235, 0.7);
+  transform: scale(1.1);
+  z-index: 10;
+}
+
+/* Thumbnail hover effect */
+.swiper-slide:hover {
+  transform: scale(1.05);
+  border-color: #3b82f6; /* Tailwind blue-500 */
+  box-shadow: 0 4px 8px rgba(59, 130, 246, 0.4);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+`;
 
 const imagesModules = import.meta.glob(
   "../assets/gallery/*.{jpg,jpeg,png,svg,webp}",
@@ -8,58 +58,116 @@ const imagesModules = import.meta.glob(
 );
 
 const images = Object.values(imagesModules).map((mod, i) => ({
-  original: mod.default,
-  thumbnail: mod.default,
-  description: `Lucrare foraj ${i + 1}`,
-  originalClass: "custom-image",
-  thumbnailClass: "custom-thumb",
+  src: mod.default,
+  alt: `Gallery image ${i + 1}`,
 }));
 
-export default function Gallery() {
-  const galleryRef = useRef();
-
-  // Function to enter fullscreen mode
-  const handleImageClick = () => {
-    if (galleryRef.current && galleryRef.current.fullScreen) {
-      galleryRef.current.fullScreen();
-    }
-  };
+export default function DynamicThumbsGallery() {
+  const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
   return (
-    <section
-      id="gallery"
-      className="max-w-auto mx-auto p-6 md:p-10 bg-gradient-to-b from-white via-white to-white rounded-xl mb-6"
-    >
-      <h2 className="text-4xl md:text-5xl font-extrabold text-center text-primaryText/90 mb-8 drop-shadow">
-        Galerie lucrări
+    <>
+      {/* Inject the styles */}
+      <style>{styles}</style>
+      <h2 className="font-bold text-primaryText mb-4 text-center uppercase">
+        Lucrările Noastre
       </h2>
+      <div className="max-w-7xl  mx-auto p-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Container with vertical layout and centered items */}
+        <div className="flex flex-col items-center space-y-8 px-4 md:px-0">
+          {/* Main Image */}
+          <div className="w-full max-w-7xl rounded-lg overflow-hidden shadow-lg">
+            <Swiper
+              modules={[Navigation, Thumbs, Autoplay]}
+              navigation
+              thumbs={{ swiper: thumbsSwiper }}
+              spaceBetween={10}
+              className="h-[400px] md:h-[500px]"
+              grabCursor
+              autoplay={{ delay: 2500, disableOnInteraction: false }}
+            >
+              {images.map((img, idx) => (
+                <SwiperSlide key={idx}>
+                  <img
+                    src={img.src}
+                    alt={img.alt}
+                    className="w-full h-full object-cover rounded-lg"
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
 
-      <div className="rounded-lg overflow-hidden ">
-        <ImageGallery
-          ref={galleryRef}
-          items={images}
-          showFullscreenButton={true}
-          showPlayButton={false}
-          showBullets={true}
-          showThumbnails={true}
-          thumbnailPosition="bottom"
-          useBrowserFullscreen={true}
-          lazyLoad={true}
-          autoPlay={true}
-          slideInterval={5000}
-          showNav={true}
-          onClick={handleImageClick} 
-        />
-      </div>
+          {/* Thumbnails below main image */}
+          <div className="w-full max-w-7xl overflow-x-auto py-2 bg-white rounded-lg border border-gray-200 flex space-x-4 px-4">
+            <Swiper
+              onSwiper={setThumbsSwiper}
+              modules={[Thumbs]}
+              slidesPerView={Math.min(images.length, 6)}
+              spaceBetween={10}
+              watchSlidesProgress
+              className="w-full"
+              grabCursor
+            >
+              {images.map((img, idx) => (
+                <SwiperSlide
+                  key={idx}
+                  className="cursor-pointer w-24 h-24 rounded-lg overflow-hidden border-2 border-gray-300 transition duration-300"
+                >
+                  <img
+                    src={img.src}
+                    alt={img.alt}
+                    className="w-full h-full object-cover"
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+        </div>
+        <div className="mx-auto space-y-4">
+                <h3>Suntem aici pentru tine</h3>
+          <p>
+          În galeria noastră vei descoperi o selecție de proiecte care reflectă munca și dedicarea noastră. Fiecare imagine spune povestea seriozității și calității cu care abordăm fiecare lucrare — de la foraje mici și medii, până la proiecte complexe de mare adâncime.
+          </p>
+          <p>
+            {" "}
+         Pentru noi, un puț înseamnă mai mult decât o lucrare finalizată — e o promisiune că vei avea apă curată și funcționare fără probleme, pentru mulți ani. Dă-ne un mesaj și pornim împreună pe drumul către un proiect reușit.
+          </p>
 
-      <div className="mt-12 flex justify-center">
-        <a
-          href="#contact"
-          className="px-8 py-4 bg-primaryText/90 text-white text-lg transition-all duration-300 ease-in-out"
-        >
-          Contactează-ne pentru mai multe detalii
-        </a>
+          {/* Right: Text/Information Panel */}
+          <div className="flex flex-col justify-start text-gray-700 space-y-4">
+            <h3>Informații de contact</h3>
+            <p>
+              Preturile difera in functie de mai multe variabile cum ar fi:
+              adancimea putului forat, diametru de foraj, tipul de tubulatura
+              folosita dar si litologia solului.
+            </p>
+            <p>
+              Răspundem de obicei în 24-48 de ore. Îți mulțumim pentru interes!
+            </p>
+            <p>
+              Pentru orice detalii legate de puturi forate sau curatare puturi
+              forate nu ezita sa ne contactezi la{" "}
+              <a
+                href="mailto:contact@exemplu.com"
+                className="text-primaryText underline font-medium"
+              >
+                foraje-desnisipari@gmail.com
+              </a>{" "}
+              sau
+            </p>
+
+            <p className="flex flex-col md:flex-row gap-4">
+              <CallToActionPhoneButton variant="header" />
+              <WhatsAppButton variant="normal" />
+            </p>
+            <p>
+              *București, Ilfov, Telorman, Dâmbovița, Giurgiu Ialomița, Brașov,
+              Constanța, Galați, Dolj, Vâlcea.
+            </p>
+          </div>
+        </div>
       </div>
-    </section>
+    </>
   );
 }

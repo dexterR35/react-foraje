@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://puturi-foraje.ro/sitemap.xml
+Host: https://puturi-foraje.ro

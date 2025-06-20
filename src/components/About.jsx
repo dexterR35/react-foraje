@@ -1,119 +1,108 @@
-import { Link } from "react-router-dom";
 import bitmapImg from "../assets/aboutus.webp";
+import {CallToActionPhoneButton} from "../components/Button";
+
+const aboutTexts = [
+  "Suntem o echipă de profesioniști cu peste 15 ani de experiență în foraje de adâncime, puțuri tubate și servicii de desisipare. Ne dedicăm să oferim soluții personalizate pentru fiecare tip de sol, utilizând echipamente moderne și tehnici inovatoare.",
+  "Misiunea noastră este să facilităm accesul la apă curată pentru comunități și gospodării din toată țara, contribuind astfel la dezvoltarea durabilă și protejarea mediului înconjurător. Fiecare lucrare pe care o realizăm este gândită să aducă beneficii pe termen lung și să răspundă celor mai înalte standarde tehnice.",
+
+];
 
 const services = [
-  "Foraje puțuri",
-  "Denisipări puțuri",
-  "Piloți forați",
-  "Puțuri absorbante",
-  "Curățare fântâni",
+  {
+    title: "Foraje Puțuri",
+    paragraphs: [
+      "Oferim servicii complete pentru foraje puțuri de apă, de la mică adâncime (1-30 m), medie (1-80 m) cu izolare a pânzelor de suprafață, până la mare adâncime (1-250 m).",
+      "Executăm foraje pentru piloți în diverse diametre și adâncimi, foraje de epuisment, pompe de căldură, denisipări și decolmatare.",
+      "De asemenea, oferim reparații, întreținere, conservare și casare foraje, montaj cabine din PVC sau beton, plus automatizări cu sisteme hidrofor și tampon.",
+    ],
+  },
+  {
+    title: "Denisiparea puțului",
+    paragraphs: [
+      "Denisiparea curăță nisipul și sedimentele acumulate în puț, mai ales în zona filtrului, care pot afecta funcționarea și durata de viață a puțului.",
+      "Folosim metode profesionale: pompare repetată, spălare cu aer comprimat și procedee mecanice specializate, adaptate fiecărui caz în parte.",
+      "Acest proces previne colmatarea, crește debitul de apă și protejează pompa împotriva uzurii premature. Verificăm puțul înainte și după intervenție.",
+    ],
+  },
+  {
+    title: "Reparații, întreținere foraje",
+    paragraphs: [
+      "Realizăm reparații și întreținere pentru a prelungi viața forajelor și a asigura funcționarea optimă pe termen lung.",
+      "Intervenim rapid pentru remedierea defectelor, înlocuirea componentelor uzate și curățarea puțurilor, menținând performanța acestora.",
+      "De asemenea, efectuăm conservarea forajelor neutilizate, prevenind degradarea și protejându-le de factori externi cu echipamente și metode moderne.",
+    ],
+  },
 ];
 
-const advantages = [
-  "Consultanță gratuită și proiectare profesională",
-  "Echipamente de ultimă generație cu vibrații reduse",
-  "Echipa certificată și garanție extinsă pe lucrare",
-  "Servicii rapide și eficiente în toată România",
-];
+
 
 export default function About() {
   return (
-    <section
-      id="about"
-      className="max-w-[95rem] mx-auto p-6 sm:p-10 md:p-16 mt-6 "
-    >
-      <h2 className="text-4xl md:text-4xl font-bold uppercase text-gray-900  text-center mb-12">
-        Despre echipa noastră
+    <section id="about" className="max-w-7xl mx-auto px-6 md:py-8 py-2 mt-4">
+      {/* HERO compact */}
+      <h2 className=" font-bold text-primaryText mb-16 text-center">
+        Serviciile Noastre
       </h2>
-
-      {/* Text & Image layout */}
-      <div className="flex flex-col lg:flex-row gap-10 text-gray-800 leading-relaxed items-center">
-        <div className="w-full lg:w-1/2">
+      <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
+        <div className="lg:w-1/1">
           <img
             src={bitmapImg}
             alt="Echipă în acţiune la foraj de puţ"
-            className="w-full h-auto object-cover rounded-xl shadow-md"
-            width="400"
-            height="250"
+            className="w-full rounded-2xl shadow-lg object-cover max-h-96"
             loading="eager"
+            decoding="async"
           />
         </div>
-
-        <div className="w-full lg:w-1/2 space-y-4">
-          <p>
-          <h3 className="text-2xl font-semibold text-primaryText/90">
-          Despre echipa noastră
+        <div className="lg:w-1/2 space-y-6">
+          <h3>
+            Despre Echipa Noastră
           </h3>
-            Suntem o echipă de profesioniști cu peste 15 ani de experiență în
-            foraje de adâncime, puțuri tubate și servicii de desisipare. Ne
-            dedicăm să oferim soluții personalizate pentru fiecare tip de sol,
-            utilizând echipamente moderne și tehnici inovatoare.
-          </p>
-          <p>
-            Misiunea noastră este să asigurăm accesul la apă curată și să
-            contribuim la dezvoltarea sustenabilă a comunităților din România.
-          </p>
-          <p>
-            Suntem o echipă specializată în lucrări de foraje puțuri apă, dar
-            și denisipări puțuri forate. Cu o experiență de peste 10 ani în
-            domeniu vă putem ajuta cu orice lucrare de foraje puțuri.
-          </p>
-         
-    
-
-          <p>
-          <h3 className="text-2xl font-semibold text-primaryText/90">
-            Servicii prestate:
-          </h3>
-          Foraje puțuri,Denisipări puțuri,Piloți forați,Puțuri absorbante,Curățare fântâni</p>
-       
+          {aboutTexts.map((text, i) => (
+            <p key={i} className="text-gray-700 font-light leading-relaxed">
+              {text}
+            </p>
+          ))}
         </div>
       </div>
 
-      {/* Services and Features */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-14">
-      
-
-        <div>
-          <h3 className="text-2xl font-semibold text-primaryText/90 mb-2">
-            Ce ne recomandă:
-          </h3>
-          <ul className="list-disc list-inside space-y-1">
-            {advantages.map((item, index) => (
-              <li key={`avantaj1-${index}`}>{item}</li>
-            ))}
-          </ul>
-        </div>
-
-        <div>
-          <h3 className="text-2xl font-semibold text-primaryText/90 mb-2">
-            Alte avantaje:
-          </h3>
-          <ul className="list-disc list-inside space-y-1">
-            {advantages.map((item, index) => (
-              <li key={`avantaj2-${index}`}>{item}</li>
-            ))}
-          </ul>
-        </div>
-
-        <div>
-          <h3 className="text-2xl font-semibold text-primaryText/90 mb-2">
-            Alte avantaje:
-          </h3>
-          <ul className="list-disc list-inside space-y-1">
-            {advantages.map((item, index) => (
-              <li key={`avantaj2-${index}`}>{item}</li>
-            ))}
-          </ul>
-        </div>
-      </div>
-
-      <div className="flex justify-center mt-10">
-        <p className="text-sm text-gray-500 text-center max-w-2xl">
-          * Prețurile diferă în funcție de mai multe variabile: adâncimea
-          puțului, diametrul de foraj, tubulatura folosită și tipul de sol.
+      {/* Services compact cards */}
+      <div className="md:mt-20 mt-10 px-2 sm:px-0">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {services.map(({ title, paragraphs }, idx) => (
+  <div
+    key={idx}
+    className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 p-6 flex flex-col justify-between"
+  >
+    <div>
+      <h3 className="mb-3">
+        {title}
+      </h3>
+      {/* Afișează fiecare paragraf separat */}
+      {paragraphs.map((para, i) => (
+        <p
+          key={i}
+          className="text-gray-600 text-sm leading-snug mb-3"
+        >
+          {para}
         </p>
+      ))}
+    </div>
+
+    {/* Buton CTA telefon */}
+    <div className="mt-4 self-start">
+  <CallToActionPhoneButton variant="card" />
+
+    </div>
+  </div>
+))}
+        </div>
       </div>
+
+      {/* Footer note */}
+      <p className="md:mt-16 mt-8 text-center text-sm italic text-gray-500 max-w-3xl mx-auto">
+        * Prețurile diferă în funcție de mai multe variabile: adâncimea puțului,
+        diametrul de foraj, tubulatura folosită și tipul de sol.
+      </p>
     </section>
   );
 }

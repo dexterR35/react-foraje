@@ -9,35 +9,23 @@ html {
 body {
   @apply font-sans;
 }
-
-.image-gallery-slide img {
-  height: 70%; /* fixed height */
-  object-fit: cover; /* or 'contain' if you want full image visible */
-  width: 100%;
+h1 {
+  @apply tracking-wide;
 }
-
-/* Optional: fix thumbnail size too */
-.image-gallery-thumbnails img {
-  height: 80px;
-  object-fit: cover;
+h2 {
+  @apply font-bold uppercase tracking-tight text-3xl md:text-4xl;
 }
-
-/* custom-gallery.css */
-
-.image-gallery-slide img {
-  object-fit: cover;
-  height: 600px; /* Fixed height, adjust as needed */
-  width: 100%;
-  max-width: 100%;
+h3 {
+  @apply text-2xl md:text-2xl font-semibold text-primary tracking-normal text-primaryText;
 }
-
-.image-gallery-slide .image-gallery-image {
-  width: 100%;
-  -o-object-fit: contain;
-  object-fit: cover !important;
-  height: 100% !important;
+.bg-primary-opacity-gradient {
+  background-image: linear-gradient(
+    to bottom,
+    rgba(127, 199, 217, 0.2) 0%,
+    white 50%,
+    rgba(127, 199, 217, 0.2) 100%
+  );
 }
-
 /* .image-gallery-content {
   max-height: 600px;
   overflow: hidden;

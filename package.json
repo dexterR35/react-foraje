@@ -18,7 +18,6 @@
     "react-icons": "^5.5.0",
     "react-image-gallery": "^1.4.0",
     "react-photo-view": "^1.2.7",
-    "react-router-dom": "^7.6.2",
     "swiper": "^11.2.8",
     "yup": "^1.6.1"
   },
