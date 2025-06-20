@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* one-liner smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+body {
+  @apply font-sans;
+}
+
+.image-gallery-slide img {
+  height: 70%; /* fixed height */
+  object-fit: cover; /* or 'contain' if you want full image visible */
+  width: 100%;
+}
+
+/* Optional: fix thumbnail size too */
+.image-gallery-thumbnails img {
+  height: 80px;
+  object-fit: cover;
+}
+
+/* custom-gallery.css */
+
+.image-gallery-slide img {
+  object-fit: cover;
+  height: 600px; /* Fixed height, adjust as needed */
+  width: 100%;
+  max-width: 100%;
+}
+
+.image-gallery-slide .image-gallery-image {
+  width: 100%;
+  -o-object-fit: contain;
+  object-fit: cover !important;
+  height: 100% !important;
+}
+
+/* .image-gallery-content {
+  max-height: 600px;
+  overflow: hidden;
+} */
+/* 
+.image-gallery-thumbnail img {
+  height: 100px;
+  object-fit: cover;
+} */
