@@ -1,32 +1,6 @@
 import bitmapImg from "../assets/bitmap.png";
-// import denisipariImg from "../assets/denisipari.png";
-// import forajeImg from "../assets/foraje.png";
-// import montajPompeImg from "../assets/path821.png";
-// import puturiImg from "../assets/path559.png";
-// import puturiImg2 from "../assets/path529.png";
+
 import {CallToActionPhoneButton} from "./Button.jsx";
-// const services = [
-//   {
-//     title: "Denisipari",
-//     img: denisipariImg,
-//   },
-//   {
-//     title: "Foraje",
-//     img: forajeImg,
-//   },
-//   {
-//     title: "Montaj Pompe",
-//     img: montajPompeImg,
-//   },
-//   {
-//     title: "Puturi",
-//     img: puturiImg,
-//   },
-//   {
-//     title: "Piloni",
-//     img: puturiImg2,
-//   },
-// ];
 
 const advantages = [
   {
@@ -86,7 +60,7 @@ export default function Hero() {
           />
         </div>
       </div>
-      <div className="md:mb-20 max-w-[95%] mx-auto m-0">
+      <div className="md:mb-20 md:max-w-[100rem] max-w-7xl mx-auto m-0">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 md:gap-8 gap-4">
           {advantages.map(({ icon, text }, i) => (
             <div

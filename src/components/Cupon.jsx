@@ -4,14 +4,56 @@ import { AiOutlineClose } from "react-icons/ai";
 export default function PromoCoupon() {
   const [visible, setVisible] = useState(false);
   const [manuallyClosed, setManuallyClosed] = useState(false);
+  const [footerVisible, setFooterVisible] = useState(false);
+  const [activeSection, setActiveSection] = useState(null);
   const timerRef = useRef(null);
 
+  // Observe footer visibility
+  useEffect(() => {
+    const footer = document.querySelector("footer");
+    if (!footer) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setFooterVisible(entry.isIntersecting);
+      },
+      { threshold: [0.1] }
+    );
+
+    observer.observe(footer);
+    return () => observer.disconnect();
+  }, []);
+
+  // Track which section is active (gallery or about-me)
+  useEffect(() => {
+    const gallery = document.getElementById("gallery");
+    const aboutMe = document.getElementById("about-me");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    if (gallery) observer.observe(gallery);
+    if (aboutMe) observer.observe(aboutMe);
+
+    return () => {
+      if (gallery) observer.unobserve(gallery);
+      if (aboutMe) observer.unobserve(aboutMe);
+    };
+  }, []);
+
+  // Main visibility logic
   useEffect(() => {
     if (manuallyClosed) {
       setVisible(false);
-      timerRef.current = setTimeout(() => {
-        setManuallyClosed(false);
-      }, 30000);
+      timerRef.current = setTimeout(() => setManuallyClosed(false), 30000);
       return () => clearTimeout(timerRef.current);
     }
 
@@ -20,30 +62,32 @@ export default function PromoCoupon() {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // Show coupon only when hero is NOT visible enough (less than 0.3)
-        setVisible(!entry.isIntersecting || entry.intersectionRatio < 0.3);
+        const isHeroVisibleEnough = entry.isIntersecting && entry.intersectionRatio >= 0.3;
+        const shouldHideForFooter =
+          footerVisible && (activeSection === "gallery" || activeSection === "about-me");
+
+        setVisible(!isHeroVisibleEnough && !shouldHideForFooter);
       },
       { threshold: [0, 0.3, 1] }
     );
 
     observer.observe(heroSection);
-
     return () => observer.disconnect();
-  }, [manuallyClosed]);
+  }, [manuallyClosed, footerVisible, activeSection]);
 
   return (
     <div
-      className={`fixed z-10 max-w-xs w-full bg-yellow-100 border border-yellow-300 shadow-xl rounded-xl p-5 transition-opacity duration-500
+      className={`fixed z-20 max-w-xs w-full bg-yellow-100 border border-yellow-200 shadow-xl rounded-xl p-5 transition-opacity duration-500
         ${
           visible && !manuallyClosed
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
         }
-        top-20 left-6 right-6
+       bottom-24 left-6 right-6
         md:bottom-6 md:left-6 md:right-auto md:top-auto
       `}
       aria-live="polite"
-      style={{ maxWidth: "350px" }} // Limit width on larger screens if needed
+      style={{ maxWidth: "350px" }}
     >
       <div className="flex justify-between items-start">
         <div className="text-sm text-gray-800 space-y-2">

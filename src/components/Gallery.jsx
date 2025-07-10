@@ -8,7 +8,7 @@ import "swiper/css/navigation";
 import "swiper/css/thumbs";
 
 const styles = `
-/* White circular navigation arrows with shadow */
+
 .swiper-button-next,
 .swiper-button-prev {
   color: white !important;
@@ -28,14 +28,14 @@ const styles = `
   background-color: rgba(0, 0, 0, 0.6);
 }
 
-/* Larger arrow icon */
+
 .swiper-button-next::after,
 .swiper-button-prev::after {
   font-size: 1.5rem;
   font-weight: bold;
 }
 
-/* Active thumbnail styling */
+
 .swiper-slide-thumb-active {
   border-color: #2563eb !important; /* Tailwind blue-600 */
   box-shadow: 0 0 10px rgba(37, 99, 235, 0.7);
@@ -43,7 +43,7 @@ const styles = `
   z-index: 10;
 }
 
-/* Thumbnail hover effect */
+
 .swiper-slide:hover {
   transform: scale(1.05);
   border-color: #3b82f6; /* Tailwind blue-500 */
@@ -67,7 +67,6 @@ export default function DynamicThumbsGallery() {
 
   return (
     <>
-      {/* Inject the styles */}
       <style>{styles}</style>
       <h2 className="font-bold text-primaryText mb-4 text-center uppercase">
         Lucrările Noastre
@@ -98,7 +97,6 @@ export default function DynamicThumbsGallery() {
             </Swiper>
           </div>
 
-          {/* Thumbnails below main image */}
           <div className="w-full max-w-7xl overflow-x-auto py-2 bg-white rounded-lg border border-gray-200 flex space-x-4 px-4">
             <Swiper
               onSwiper={setThumbsSwiper}
@@ -125,16 +123,22 @@ export default function DynamicThumbsGallery() {
           </div>
         </div>
         <div className="mx-auto space-y-4">
-                <h3>Suntem aici pentru tine</h3>
+          <h3>Suntem aici pentru tine</h3>
           <p>
-          În galeria noastră vei descoperi o selecție de proiecte care reflectă munca și dedicarea noastră. Fiecare imagine spune povestea seriozității și calității cu care abordăm fiecare lucrare — de la foraje mici și medii, până la proiecte complexe de mare adâncime.
+            În galeria noastră vei descoperi o selecție de proiecte care
+            reflectă munca și dedicarea noastră. Fiecare imagine spune povestea
+            seriozității și calității cu care abordăm fiecare lucrare — de la
+            foraje mici și medii, până la proiecte complexe de mare adâncime.
           </p>
           <p>
             {" "}
-         Pentru noi, un puț înseamnă mai mult decât o lucrare finalizată — e o promisiune că vei avea apă curată și funcționare fără probleme, pentru mulți ani. Dă-ne un mesaj și pornim împreună pe drumul către un proiect reușit.
+            Pentru noi, un puț înseamnă mai mult decât o lucrare finalizată — e
+            o promisiune că vei avea apă curată și funcționare fără probleme,
+            pentru mulți ani. Dă-ne un mesaj și pornim împreună pe drumul către
+            un proiect reușit.
           </p>
 
-          {/* Right: Text/Information Panel */}
+       
           <div className="flex flex-col justify-start text-gray-700 space-y-4">
             <h3>Informații de contact</h3>
             <p>

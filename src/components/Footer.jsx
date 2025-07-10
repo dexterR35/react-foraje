@@ -1,7 +1,7 @@
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-300 w-full text-sm z-20"  role="contentinfo">
+    <footer className="bg-gray-900 text-gray-300 w-full text-sm z-10"  role="contentinfo">
       <div className="max-w-6xl mx-auto px-6 py-10 grid md:grid-cols-3 gap-8">
         {/* Navigare */}
         <nav aria-label="Linkuri rapide ">

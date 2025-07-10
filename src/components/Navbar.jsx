@@ -31,7 +31,7 @@ export default function Navbar() {
             {open ? <HiOutlineX size={28} /> : <HiOutlineMenu size={28} />}
           </button>
           <ul
-            className={`absolute top-full left-0 left-0 bg-white p-4 w-full md:static md:flex md:space-x-8 md:bg-transparent shadow-md md:shadow-none md:pt-0 pt-4 md:pb-0 pb-4 ${
+            className={`absolute top-full left-0 bg-white p-4 w-full md:static md:flex md:space-x-8 md:bg-transparent shadow-md md:shadow-none md:pt-0 pt-4 md:pb-0 pb-4 ${
               open ? "block" : "hidden md:block"
             }`}
           >

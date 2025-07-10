@@ -27,7 +27,7 @@ export default function FloatingContactWidget() {
       className={`sticky bg-slate-50 md:bg-transparent md:fixed bottom-0 py-4
         right-10 
         left-0 sm:left-auto
-        z-10 
+        z-30 
 
         flex flex-row sm:flex-col 
         items-center sm:items-end 
@@ -43,21 +43,6 @@ export default function FloatingContactWidget() {
     >
       {/* WhatsApp */}
       <WhatsAppButton variant="widget" />
-      {/* <a
-        href="https://wa.me/40740000000"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="group flex items-center gap-3"
-        aria-label="Scrie-ne pe WhatsApp"
-      >
-        <div className="px-3 py-1 bg-green-500 text-white rounded-lg shadow hidden sm:block text-sm font-medium group-hover:scale-105 transition-transform">
-          Scrie-ne pe WhatsApp
-        </div>
-        <div className="w-14 h-14 flex items-center justify-center rounded-full bg-green-500 text-white shadow-xl hover:scale-105 transition-transform">
-          <FaWhatsapp className="w-6 h-6" />
-        </div>
-      </a> */}
-
       {/* Your phone button */}
       <CallToActionPhoneButton variant="widget" />
     </div>
