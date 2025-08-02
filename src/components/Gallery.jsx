@@ -156,7 +156,7 @@ export default function DynamicThumbsGallery() {
                 href="mailto:contact@exemplu.com"
                 className="text-primaryText underline font-medium"
               >
-                foraje-desnisipari@gmail.com
+                forajedenisipari2025@gmail.com
               </a>{" "}
               sau
             </p>
@@ -167,7 +167,7 @@ export default function DynamicThumbsGallery() {
             </p>
             <p>
               *București, Ilfov, Telorman, Dâmbovița, Giurgiu Ialomița, Brașov,
-              Constanța, Galați, Dolj, Vâlcea.
+              Constanța, Galați, Dolj, Vâlcea. Mehedinti, Gorj, Sibiu, Cluj, Iasi, Vaslui, Braila, Calarasi.
             </p>
           </div>
         </div>

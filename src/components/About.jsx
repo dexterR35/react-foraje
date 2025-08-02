@@ -11,7 +11,7 @@ const services = [
   {
     title: "Foraje Puțuri",
     paragraphs: [
-      "Oferim servicii complete pentru foraje puțuri de apă, de la mică adâncime (1-30 m), medie (1-80 m) cu izolare a pânzelor de suprafață, până la mare adâncime (1-250 m).",
+      "Oferim servicii complete pentru foraje puțuri de apă, de la mică adâncime (1-30 m), medie (1-50 m) cu izolare a pânzelor de suprafață, până la mare adâncime (1-250 m).",
       "Executăm foraje pentru piloți în diverse diametre și adâncimi, foraje de epuisment, pompe de căldură, denisipări și decolmatare.",
       "De asemenea, oferim reparații, întreținere, conservare și casare foraje, montaj cabine din PVC sau beton, plus automatizări cu sisteme hidrofor și tampon.",
     ],

@@ -17,23 +17,50 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Foraje &amp; Puțuri – Foraje de apă şi desisipări profesionale" />
     <meta property="og:description" content="Experţi în foraje de apă, puţuri tubate şi desisipări. Servicii rapide în toată România." />
-    <meta property="og:url" content="https://foraje-exemplu.ro" />
-    <meta property="og:image" content="https://foraje-exemplu.ro/hero.webp" />
-    <link rel="canonical" href="https://foraje-exemplu.ro" />
+    <meta property="og:url" content="https://www.denisipari-foraje.ro/" />
+    <meta property="og:image" content="https://www.denisipari-foraje.ro/hero.webp" />
+    <link rel="canonical" href="https://www.denisipari-foraje.ro/" />
 
     <!-- Performance hints -->
     <link rel="preconnect" href="https://www.googletagmanager.com" />
     <link rel="preload" as="image" href="./src/assets/gallery/3.webp" />
     <link rel="modulepreload" href="/src/main.jsx" />
 
-    <!-- Google Tag Manager -->
-    <script>
-  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-XXXXXXX');
-    </script>
+ <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-W2QFCBGM');</script>
+<!-- End Google Tag Manager -->
+ <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17262098521">
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-17262098521');
+</script>
+<!-- Event snippet for Page view conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-17262098521/h4XkCL_sz-EaENnwmqdA',
+      'value': 1.0,
+      'currency': 'RON',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
 
     <style>
       /* Only critical styles here – the rest lives in Tailwind build */
@@ -41,12 +68,10 @@
     </style>
   </head>
   <body class="antialiased font-sans">
-  <!-- Google Tag Manager (noscript) -->
-<noscript>
-  <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe>
-</noscript>
-
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W2QFCBGM"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
     <div id="root"></div>
 
     <!-- Vite entrypoint -->

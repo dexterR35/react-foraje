@@ -2,7 +2,7 @@ import React from "react";
 import { FaPhone, FaCommentDots, FaWhatsapp } from "react-icons/fa";
 
 // Shared phone number constant
-const PHONE_NUMBER = "40749999999";
+const PHONE_NUMBER = "+40765559701";
 
 export function CallToActionPhoneButton({ variant = "hero" }) {
   let content, classes, iconSize, label;
@@ -43,7 +43,7 @@ export function CallToActionPhoneButton({ variant = "hero" }) {
       classes =
         "inline-flex items-center justify-center gap-3 px-5 py-2 rounded-xl bg-white text-primaryText text-sm font-medium border border-primaryText hover:bg-primaryText hover:text-white transition-transform hover:scale-105";
       iconSize = "w-4 h-4";
-      label = "Sună 0754.112.441";
+      label = "Sună +40765559701";
       content = (
         <>
           <FaPhone className={iconSize} />

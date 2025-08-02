@@ -35,8 +35,8 @@ export default function Footer() {
           <h3 id="contact-info" className="text-lg font-semibold text-white mb-4">Contact rapid</h3>
           <p className="mb-2">
             Telefon:{" "}
-            <a href="tel:+40740000000" className="hover:text-white transition-colors duration-200">
-              +40 740 000 000
+            <a href="tel:+40765559701" className="hover:text-white transition-colors duration-200">
+              0765559701
             </a>
           </p>
           <p className="mb-2">

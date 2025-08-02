@@ -6,9 +6,9 @@ export default function SEO({
   title = "Default Title",
   description = "Default description",
   keywords = "",
-  author = "Marian Foraje Puțuri",
-  ogImage = "https://foraje-exemplu.ro/hero.webp",
-  url = "https://foraje-exemplu.ro",
+  author = "Denisipari Foraje Puțuri",
+  ogImage = "https://www.denisipari-foraje.ro/hero.webp",
+  url = "https://www.denisipari-foraje.ro/",
 }) {
   const jsonLd = {
     "@context": "https://schema.org",
@@ -17,7 +17,7 @@ export default function SEO({
     url,
     logo: ogImage,
     description,
-    telephone: "+40 740 000 000",
+    telephone: "+40768017826",
     address: {
       "@type": "PostalAddress",
       streetAddress: "Strada Exemplu 123",

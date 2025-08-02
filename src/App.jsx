@@ -20,7 +20,7 @@ export default function App() {
         keywords="foraje, puțuri, apă, România"
         author="Foraje & Puțuri"
         ogImage="/og-image.jpg"
-        url="https://www.foraje-exemplu.ro"
+        url="https://www.denisipari-foraje.ro/"
       />
       <Suspense fallback={<Loader />}>
         <Navbar />

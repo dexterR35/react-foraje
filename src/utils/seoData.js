@@ -6,8 +6,8 @@ const seoData = {
     keywords:
       "foraje puțuri, apă mică adâncime, apă medie adâncime, uz casnic, șantier, irigații, denisipări, piloni fundații",
     author: "Marian Foraje Puțuri",
-    ogImage: "https://puturi-foraje.ro/assets/og-home.jpg",
-    url: "https://puturi-foraje.ro/",
+    ogImage: "https://www.denisipari-foraje.ro/assets/og-home.jpg",
+    url: "https://www.denisipari-foraje.ro/",
   },
   "/servicii": {
     title: "Servicii Foraje Puțuri și Piloni | Marian Foraje Puțuri",
@@ -16,16 +16,16 @@ const seoData = {
     keywords:
       "servicii foraje, foraje puțuri, denisipări, prelungiri puțuri, foraje piloni, fundații",
     author: "Marian Foraje Puțuri",
-    ogImage: "https://puturi-foraje.ro/assets/og-servicii.jpg",
-    url: "https://puturi-foraje.ro/servicii",
+    ogImage: "https://www.denisipari-foraje.ro/assets/og-servicii.jpg",
+    url: "https://www.denisipari-foraje.ro/servicii",
   },
   "/contact": {
     title: "Contactează Marian Foraje Puțuri | puturi-foraje.ro",
     description: "Contactează-ne pentru oferte personalizate și consultanță gratuită.",
     keywords: "contact foraje puțuri, oferte, consultanță, Marian Foraje Puțuri",
     author: "Marian Foraje Puțuri",
-    ogImage: "https://puturi-foraje.ro/assets/og-contact.jpg",
-    url: "https://puturi-foraje.ro/contact",
+    ogImage: "https://www.denisipari-foraje.ro/assets/og-contact.jpg",
+    url: "https://www.denisipari-foraje.ro/contact",
   },
   // more routes...
 };
